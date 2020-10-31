@@ -1,4 +1,4 @@
-name: "Build MedaWiki Daily"
+name: "Build MediaWiki Daily"
 
 on:
   schedule:

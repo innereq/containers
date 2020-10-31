@@ -1,4 +1,4 @@
-name: "Daily Integration"
+name: "Build Pleroma Daily"
 
 on:
   schedule:

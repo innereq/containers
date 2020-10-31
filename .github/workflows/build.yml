@@ -28,4 +28,4 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-            innereq/containers:pleroma
+            ghcr.io/innereq/containers/pleroma:latest

@@ -2,9 +2,11 @@ FROM mediawiki:1.35.0
 
 ENV MEDIAWIKI_BRANCH REL1_35
 
-#RUN cd /tmp && curl -sS https://getcomposer.org/installer -o composer-setup.php \
-#	&& php composer-setup.php --install-dir=/usr/local/bin --filename=composer \
-#	&& cd /var/www/html
+RUN apt-get update && apt-get upgrade -y && apt-get install unzip
+
+RUN cd /tmp && curl -sS https://getcomposer.org/installer -o composer-setup.php \
+	&& php composer-setup.php --version="1.10.17" --install-dir=/usr/local/bin --filename=composer \
+	&& cd /var/www/html
 
 RUN git clone --depth 1 -b $MEDIAWIKI_BRANCH \
 	https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Echo \
@@ -22,10 +24,6 @@ RUN git clone --depth 1 -b $MEDIAWIKI_BRANCH \
 	https://gerrit.wikimedia.org/r/p/mediawiki/extensions/BetaFeatures \
 	/var/www/html/extensions/BetaFeatures
 
-#RUN git clone --depth 1 -b $MEDIAWIKI_BRANCH \
-#	https://gerrit.wikimedia.org/r/p/mediawiki/extensions/TemplateData \
-#	/var/www/html/extensions/TemplateData
-
 RUN git clone --depth 1 -b $MEDIAWIKI_BRANCH \
 	https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Popups \
 	/var/www/html/extensions/Popups
@@ -38,12 +36,6 @@ RUN git clone --depth 1 -b v2.6.1 \
 	https://gerrit.wikimedia.org/r/p/mediawiki/extensions/WikiSEO \
 	/var/www/html/extensions/WikiSEO
 
-#RUN git clone --depth 1 -b $MEDIAWIKI_BRANCH \
-#	https://gerrit.wikimedia.org/r/p/mediawiki/extensions/VisualEditor \
-#	/var/www/html/extensions/VisualEditor \
-#	&& cd /var/www/html/extensions/VisualEditor \
-#	&& git submodule update --init \
-#	&& cd /var/www/html
 
 RUN git clone --depth 1 -b $MEDIAWIKI_BRANCH \
 	https://gerrit.wikimedia.org/r/p/mediawiki/extensions/RSS \
@@ -52,3 +44,6 @@ RUN git clone --depth 1 -b $MEDIAWIKI_BRANCH \
 RUN git clone --depth 1 -b $MEDIAWIKI_BRANCH \
 	https://gerrit.wikimedia.org/r/p/mediawiki/extensions/UploadWizard \
 	/var/www/html/extensions/UploadWizard
+
+RUN COMPOSER=composer.local.json composer require --no-update mediawiki/chameleon-skin:~3.0 && \
+    composer update mediawiki/chameleon-skin --no-dev -o

@@ -43,10 +43,10 @@ RUN git clone --depth 1 --single-branch -b $MEDIAWIKI_BRANCH \
 RUN git clone --depth 1 --single-branch -b $MEDIAWIKI_BRANCH \
 	https://gerrit.wikimedia.org/r/p/mediawiki/extensions/UploadWizard \
 	/var/www/html/extensions/UploadWizard
+	
+RUN git clone --depth 1 --single-branch -b $MEDIAWIKI_BRANCH \
+	https://gerrit.wikimedia.org/r/p/mediawiki/extensions/UserMerge \
+	/var/www/html/extensions/UserMerge
 
 #RUN COMPOSER=composer.local.json composer require --no-update mediawiki/chameleon-skin:~3.0 && \
 #    composer update mediawiki/chameleon-skin --no-dev -o
-
-RUN git clone --depth 1 --single-branch -b development \
-	https://github.com/thaider/Tweeki \
-	/var/www/html/skins/Tweeki

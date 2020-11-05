@@ -48,5 +48,9 @@ RUN git clone --depth 1 --single-branch -b $MEDIAWIKI_BRANCH \
 	https://gerrit.wikimedia.org/r/p/mediawiki/extensions/UserMerge \
 	/var/www/html/extensions/UserMerge
 
+RUN git clone --depth 1 --single-branch \
+	https://gerrit.wikimedia.org/r/p/mediawiki/extensions/AutoCreateCategoryPages \
+	/var/www/html/extensions/AutoCreateCategoryPages
+
 #RUN COMPOSER=composer.local.json composer require --no-update mediawiki/chameleon-skin:~3.0 && \
 #    composer update mediawiki/chameleon-skin --no-dev -o

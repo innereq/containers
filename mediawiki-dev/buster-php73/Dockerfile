@@ -1,4 +1,4 @@
-FROM mediawiki-dev-buster
+FROM ghcr.io/innereq/containers/mediawiki-dev/buster
 
 # Install PHP dependencies:
 

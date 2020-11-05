@@ -1,4 +1,4 @@
-FROM mediawiki-dev-buster-php73
+FROM ghcr.io/innereq/containers/mediawiki-dev/buster-php73
 
 RUN apt-get update && apt-get upgrade -y && apt-get install -y ffmpeg
 

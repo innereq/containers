@@ -1,4 +1,4 @@
-FROM mediawiki-dev-buster-php73-fpm-apache2
+FROM ghcr.io/innereq/containers/mediawiki-dev/buster-php73-fpm-apache2
 ENV XDEBUG_VERSION 2.9.8
 
 # Use Xdebug 2.9 rather than 2.6 that is packaged with stretch

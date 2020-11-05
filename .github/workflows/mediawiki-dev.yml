@@ -48,6 +48,15 @@ jobs:
           tags: |
             ghcr.io/innereq/containers/mediawiki-dev/buster-php73-fpm-apache2:latest
 
+      - name: "Build and push mediawiki-dev-buster-php73-fpm-apache2-xdebug container"
+        uses: docker/build-push-action@v2
+        with:
+          context: ./mediawiki-dev/buster-php73-fpm-apache2-xdebug
+          file: ./mediawiki-dev/buster-php73-fpm-apache2-xdebug/Dockerfile
+          push: true
+          tags: |
+            ghcr.io/innereq/containers/mediawiki-dev/buster-php73-fpm-apache2-xdebug:latest
+
       - name: "Build and push mediawiki-dev-buster-php73-jobrunner container"
         uses: docker/build-push-action@v2
         with:

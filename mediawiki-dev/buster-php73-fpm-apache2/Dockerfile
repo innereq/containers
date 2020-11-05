@@ -1,4 +1,4 @@
-FROM mediawiki-dev-buster-php73
+FROM ghcr.io/innereq/containers/mediawiki-dev/buster-php73
 
 # We don't want the default index.html for running PHP applications, and
 # xdebug is a major performance drag, so disable it here (it's already

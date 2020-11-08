@@ -52,5 +52,9 @@ RUN git clone --depth 1 --single-branch \
 	https://gerrit.wikimedia.org/r/p/mediawiki/extensions/AutoCreateCategoryPages \
 	/var/www/html/extensions/AutoCreateCategoryPages
 
+RUN git clone --depth 1 --single-branch \
+	https://github.com/innereq/mediawiki-skin-Celestial \
+	/var/www/html/skins/Celestial
+
 #RUN COMPOSER=composer.local.json composer require --no-update mediawiki/chameleon-skin:~3.0 && \
 #    composer update mediawiki/chameleon-skin --no-dev -o

@@ -55,6 +55,10 @@ RUN git clone --depth 1 --single-branch \
 RUN git clone --depth 1 --single-branch \
 	https://github.com/innereq/mediawiki-skin-Celestial \
 	/var/www/html/skins/Celestial
+	
+RUN git clone --depth 1 --single-branch -b $MEDIAWIKI_BRANCH \
+	https://gerrit.wikimedia.org/r/p/mediawiki/extensions/TemplateStyles \
+	/var/www/html/extensions/TemplateStyles
 
 #RUN COMPOSER=composer.local.json composer require --no-update mediawiki/chameleon-skin:~3.0 && \
 #    composer update mediawiki/chameleon-skin --no-dev -o

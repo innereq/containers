@@ -2,7 +2,7 @@ FROM mediawiki:1.35.0
 
 ENV MEDIAWIKI_BRANCH REL1_35
 
-RUN apt-get update && apt-get upgrade -y # && apt-get install php-zip unzip
+RUN apt-get update && apt-get upgrade -y # && apt-get install -y php-zip unzip
 
 RUN cd /tmp && curl -sS https://getcomposer.org/installer -o composer-setup.php \
 	&& php composer-setup.php --version="1.10.17" --install-dir=/usr/local/bin --filename=composer \

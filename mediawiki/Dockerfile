@@ -4,9 +4,9 @@ ENV MEDIAWIKI_BRANCH REL1_35
 
 RUN apt-get update && apt-get upgrade -y # && apt-get install unzip
 
-#RUN cd /tmp && curl -sS https://getcomposer.org/installer -o composer-setup.php \
-#	&& php composer-setup.php --version="1.10.17" --install-dir=/usr/local/bin --filename=composer \
-#	&& cd /var/www/html
+RUN cd /tmp && curl -sS https://getcomposer.org/installer -o composer-setup.php \
+	&& php composer-setup.php --version="1.10.17" --install-dir=/usr/local/bin --filename=composer \
+	&& cd /var/www/html
 
 RUN git clone --depth 1 --single-branch -b $MEDIAWIKI_BRANCH \
 	https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Echo \
@@ -58,7 +58,10 @@ RUN git clone --depth 1 --single-branch \
 	
 RUN git clone --depth 1 --single-branch -b $MEDIAWIKI_BRANCH \
 	https://gerrit.wikimedia.org/r/p/mediawiki/extensions/TemplateStyles \
-	/var/www/html/extensions/TemplateStyles
+	/var/www/html/extensions/TemplateStyles \
+	&& cd /var/www/html/extensions/TemplateStyles \
+	&& composer install --no-dev \
+	&& cd /var/www/html
 
 #RUN COMPOSER=composer.local.json composer require --no-update mediawiki/chameleon-skin:~3.0 && \
 #    composer update mediawiki/chameleon-skin --no-dev -o

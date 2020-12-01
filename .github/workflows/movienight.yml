@@ -13,15 +13,10 @@ jobs:
         with:
          repository: zorchenhimer/MovieNight
 
-      - name: "Login to GitHub Container Registry"
-        uses: docker/login-action@v1 
-        with:
-          registry: ghcr.io
-          username: ${{ github.repository_owner }}
-          password: ${{ secrets.CR_PAT }}
-
       - name: "Build and push MovieNight container"
         uses: docker/build-push-action@v1
         with:
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.CR_PAT }}
           repository: ghcr.io/innereq/containers/movienight
           tags: latest

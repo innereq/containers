@@ -21,3 +21,4 @@ jobs:
           password: ${{ secrets.CR_PAT }}
           repository: innereq/containers/movienight
           tags: latest
+          cache_froms: innereq/containers/movienight:latest

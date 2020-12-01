@@ -19,5 +19,5 @@ jobs:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.CR_PAT }}
-          repository: ghcr.io/innereq/containers/movienight
+          repository: innereq/containers/movienight
           tags: latest

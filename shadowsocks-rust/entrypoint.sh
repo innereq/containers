@@ -1,5 +1,4 @@
 #!/bin/bash
-set -e
 
 SS_PORT_DEFAULT="8388"
 SS_METHOD_DEFAULT="aes-256-gcm"

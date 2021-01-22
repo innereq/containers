@@ -68,7 +68,7 @@ RUN git clone --depth 1 --single-branch \
 	/var/www/html/extensions/MobileFrontend
 
 RUN git clone --depth 1 --single-branch \
-	https://gerrit.wikimedia.org/r/p/mediawiki/extensions/MinervaNeue \
+	https://gerrit.wikimedia.org/r/mediawiki/skins/MinervaNeue \
 	/var/www/html/extensions/MinervaNeue
 
 #RUN COMPOSER=composer.local.json composer require --no-update mediawiki/chameleon-skin:~3.0 && \

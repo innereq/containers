@@ -60,8 +60,12 @@ RUN git clone --depth 1 --single-branch \
 	/var/www/html/extensions/RelatedArticles
 
 RUN git clone --depth 1 --single-branch -b $MEDIAWIKI_BRANCH \
-	https://gerrit.wikimedia.org/r/p/mediawiki/extensions/DiscussionTools \
-	/var/www/html/extensions/DiscussionTools
+	https://gerrit.wikimedia.org/r/p/mediawiki/extensions/WikiSEO \
+	/var/www/html/extensions/WikiSEO
+
+RUN git clone --depth 1 --single-branch -b $MEDIAWIKI_BRANCH \
+	https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Comments \
+	/var/www/html/extensions/Comments
 
 # Deprecated
 # RUN git clone --depth 1 --single-branch -b $MEDIAWIKI_BRANCH \
@@ -76,12 +80,5 @@ RUN git clone --depth 1 --single-branch -b $MEDIAWIKI_BRANCH \
 # 	https://gerrit.wikimedia.org/r/p/mediawiki/extensions/RSS \
 # 	/var/www/html/extensions/RSS
 
-# RUN git clone --depth 1 --single-branch -b v2.6.1 \
-# 	https://gerrit.wikimedia.org/r/p/mediawiki/extensions/WikiSEO \
-# 	/var/www/html/extensions/WikiSEO
-
-RUN COMPOSER=composer.local.json composer require --no-update mediawiki/semantic-media-wiki:~3.2 && \
-	composer update mediawiki/semantic-media-wiki --no-dev -o
-
-RUN COMPOSER=composer.local.json composer require --no-update mediawiki/semantic-meta-tags:~3.0 && \
-	composer update mediawiki/semantic-meta-tags --no-dev -o
+# RUN COMPOSER=composer.local.json composer require --no-update mediawiki/semantic-meta-tags:~3.0 && \
+# 	composer update mediawiki/semantic-meta-tags --no-dev -o

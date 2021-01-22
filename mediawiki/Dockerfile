@@ -63,5 +63,13 @@ RUN git clone --depth 1 --single-branch -b $MEDIAWIKI_BRANCH \
 	&& composer install --no-dev \
 	&& cd /var/www/html
 
+RUN git clone --depth 1 --single-branch \
+	https://gerrit.wikimedia.org/r/p/mediawiki/extensions/MobileFrontend \
+	/var/www/html/extensions/MobileFrontend
+
+RUN git clone --depth 1 --single-branch \
+	https://gerrit.wikimedia.org/r/p/mediawiki/extensions/MinervaNeue \
+	/var/www/html/extensions/MinervaNeue
+
 #RUN COMPOSER=composer.local.json composer require --no-update mediawiki/chameleon-skin:~3.0 && \
 #    composer update mediawiki/chameleon-skin --no-dev -o

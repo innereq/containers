@@ -72,7 +72,7 @@ RUN git clone --depth 1 --single-branch \
 	/var/www/html/extensions/VEForAll
 
 RUN rm -rf /var/www/html/skins/Vector && \
-	git clone --depth 1 --single-branch \
+	git clone --depth 1 --single-branch -b $MEDIAWIKI_BRANCH \
 	https://gerrit.wikimedia.org/r/mediawiki/skins/Vector \
 	/var/www/html/skins/Vector
 

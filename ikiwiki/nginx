@@ -1,0 +1,16 @@
+server {
+    root /home/ikiwiki/public_html/wiki;
+    index index.html;
+
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+
+    location /ikiwiki.cgi {
+        fastcgi_pass unix:/tmp/fcgi.socket;
+        fastcgi_index ikiwiki.cgi;
+        fastcgi_param SCRIPT_FILENAME /home/ikiwiki/public_html/wiki/ikiwiki.cgi;
+        fastcgi_param DOCUMENT_ROOT /home/ikiwiki/public_html/wiki;
+        include /etc/nginx/fastcgi_params;
+    }
+}

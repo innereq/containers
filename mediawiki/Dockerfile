@@ -65,7 +65,7 @@ RUN git clone --depth 1 --single-branch -b $MEDIAWIKI_BRANCH \
 
 RUN git clone --depth 1 --single-branch -b $MEDIAWIKI_BRANCH \
 	https://gerrit.wikimedia.org/r/mediawiki/skins/MinervaNeue \
-	/var/www/html/extensions/MinervaNeue
+	/var/www/html/skins/MinervaNeue
 
 #RUN COMPOSER=composer.local.json composer require --no-update mediawiki/chameleon-skin:~3.0 && \
 #    composer update mediawiki/chameleon-skin --no-dev -o

@@ -67,6 +67,10 @@ RUN git clone --depth 1 --single-branch -b $MEDIAWIKI_BRANCH \
 	https://gerrit.wikimedia.org/r/p/mediawiki/extensions/CommentStreams \
 	/var/www/html/extensions/CommentStreams
 
+RUN git clone --depth 1 --single-branch \
+	https://gerrit.wikimedia.org/r/p/mediawiki/extensions/VEForAll \
+	/var/www/html/extensions/VEForAll
+
 # Deprecated
 # RUN git clone --depth 1 --single-branch -b $MEDIAWIKI_BRANCH \
 # 	https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Tabs \

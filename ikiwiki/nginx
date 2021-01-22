@@ -17,6 +17,11 @@ server {
         fastcgi_index ikiwiki.cgi;
         fastcgi_param SCRIPT_FILENAME /home/ikiwiki/public_html/wiki/ikiwiki.cgi;
         fastcgi_param DOCUMENT_ROOT /home/ikiwiki/public_html/wiki;
+        set $realip $remote_addr;
+        if ($http_x_forwarded_for ~ "^(\d+\.\d+\.\d+\.\d+)") {
+            set $realip $1;
+        }
+        fastcgi_param REMOTE_ADDR $realip;
         include /etc/nginx/fastcgi_params;
     }
 }

@@ -64,8 +64,8 @@ RUN git clone --depth 1 --single-branch -b $MEDIAWIKI_BRANCH \
 	/var/www/html/extensions/WikiSEO
 
 RUN git clone --depth 1 --single-branch -b $MEDIAWIKI_BRANCH \
-	https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Comments \
-	/var/www/html/extensions/Comments
+	https://gerrit.wikimedia.org/r/p/mediawiki/extensions/CommentStreams \
+	/var/www/html/extensions/CommentStreams
 
 # Deprecated
 # RUN git clone --depth 1 --single-branch -b $MEDIAWIKI_BRANCH \

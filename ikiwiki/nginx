@@ -4,7 +4,6 @@ server {
 
     proxy_set_header Host $host;
     proxy_set_header X-Real-IP $remote_addr;
-
     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
     proxy_set_header X-Forwarded-Proto $http_x_forwarded_proto;
     proxy_set_header X-Forwarded-Host $http_x_forwarded_host;
@@ -24,6 +23,7 @@ server {
         fastcgi_index ikiwiki.cgi;
         fastcgi_param SCRIPT_FILENAME /home/ikiwiki/public_html/wiki/ikiwiki.cgi;
         fastcgi_param DOCUMENT_ROOT /home/ikiwiki/public_html/wiki;
+        fastcgi_param REMOTE_ADDR $http_x_real_ip;
         include /etc/nginx/fastcgi_params;
     }
 }

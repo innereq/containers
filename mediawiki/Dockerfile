@@ -51,10 +51,6 @@ RUN git clone --depth 1 --single-branch -b $MEDIAWIKI_BRANCH \
 RUN git clone --depth 1 --single-branch \
 	https://gerrit.wikimedia.org/r/p/mediawiki/extensions/AutoCreateCategoryPages \
 	/var/www/html/extensions/AutoCreateCategoryPages
-
-RUN git clone --depth 1 --single-branch \
-	https://github.com/innereq/mediawiki-skin-Celestial \
-	/var/www/html/skins/Celestial
 	
 RUN git clone --depth 1 --single-branch -b $MEDIAWIKI_BRANCH \
 	https://gerrit.wikimedia.org/r/p/mediawiki/extensions/TemplateStyles \
@@ -63,11 +59,11 @@ RUN git clone --depth 1 --single-branch -b $MEDIAWIKI_BRANCH \
 	&& composer install --no-dev \
 	&& cd /var/www/html
 
-RUN git clone --depth 1 --single-branch \
+RUN git clone --depth 1 --single-branch -b $MEDIAWIKI_BRANCH \
 	https://gerrit.wikimedia.org/r/p/mediawiki/extensions/MobileFrontend \
 	/var/www/html/extensions/MobileFrontend
 
-RUN git clone --depth 1 --single-branch \
+RUN git clone --depth 1 --single-branch -b $MEDIAWIKI_BRANCH \
 	https://gerrit.wikimedia.org/r/mediawiki/skins/MinervaNeue \
 	/var/www/html/extensions/MinervaNeue
 

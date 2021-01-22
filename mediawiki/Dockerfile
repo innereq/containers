@@ -13,14 +13,6 @@ RUN git clone --depth 1 --single-branch -b $MEDIAWIKI_BRANCH \
 	/var/www/html/extensions/Echo
 
 RUN git clone --depth 1 --single-branch -b $MEDIAWIKI_BRANCH \
-	https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Tabs \
-	/var/www/html/extensions/Tabs
-
-RUN git clone --depth 1 --single-branch \
-	https://github.com/sigbertklinke/Iframe \
-	/var/www/html/extensions/Iframe
-
-RUN git clone --depth 1 --single-branch -b $MEDIAWIKI_BRANCH \
 	https://gerrit.wikimedia.org/r/p/mediawiki/extensions/BetaFeatures \
 	/var/www/html/extensions/BetaFeatures
 
@@ -32,26 +24,18 @@ RUN git clone --depth 1 --single-branch -b $MEDIAWIKI_BRANCH \
 	https://gerrit.wikimedia.org/r/p/mediawiki/extensions/RevisionSlider \
 	/var/www/html/extensions/RevisionSlider
 
-RUN git clone --depth 1 --single-branch -b v2.6.1 \
-	https://gerrit.wikimedia.org/r/p/mediawiki/extensions/WikiSEO \
-	/var/www/html/extensions/WikiSEO
-
-RUN git clone --depth 1 --single-branch -b $MEDIAWIKI_BRANCH \
-	https://gerrit.wikimedia.org/r/p/mediawiki/extensions/RSS \
-	/var/www/html/extensions/RSS
-
 RUN git clone --depth 1 --single-branch -b $MEDIAWIKI_BRANCH \
 	https://gerrit.wikimedia.org/r/p/mediawiki/extensions/UploadWizard \
 	/var/www/html/extensions/UploadWizard
-	
-RUN git clone --depth 1 --single-branch -b $MEDIAWIKI_BRANCH \
+
+RUN git clone --depth 1 --single-branch \
 	https://gerrit.wikimedia.org/r/p/mediawiki/extensions/UserMerge \
 	/var/www/html/extensions/UserMerge
 
 RUN git clone --depth 1 --single-branch \
 	https://gerrit.wikimedia.org/r/p/mediawiki/extensions/AutoCreateCategoryPages \
 	/var/www/html/extensions/AutoCreateCategoryPages
-	
+
 RUN git clone --depth 1 --single-branch -b $MEDIAWIKI_BRANCH \
 	https://gerrit.wikimedia.org/r/p/mediawiki/extensions/TemplateStyles \
 	/var/www/html/extensions/TemplateStyles \
@@ -67,5 +51,37 @@ RUN git clone --depth 1 --single-branch -b $MEDIAWIKI_BRANCH \
 	https://gerrit.wikimedia.org/r/mediawiki/skins/MinervaNeue \
 	/var/www/html/skins/MinervaNeue
 
-#RUN COMPOSER=composer.local.json composer require --no-update mediawiki/chameleon-skin:~3.0 && \
-#    composer update mediawiki/chameleon-skin --no-dev -o
+RUN git clone --depth 1 --single-branch \
+	https://gerrit.wikimedia.org/r/p/mediawiki/extensions/MsUpload \
+	/var/www/html/extensions/MsUpload
+
+RUN git clone --depth 1 --single-branch \
+	https://gerrit.wikimedia.org/r/p/mediawiki/extensions/RelatedArticles \
+	/var/www/html/extensions/RelatedArticles
+
+RUN git clone --depth 1 --single-branch -b $MEDIAWIKI_BRANCH \
+	https://gerrit.wikimedia.org/r/p/mediawiki/extensions/DiscussionTools \
+	/var/www/html/extensions/DiscussionTools
+
+# Deprecated
+# RUN git clone --depth 1 --single-branch -b $MEDIAWIKI_BRANCH \
+# 	https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Tabs \
+# 	/var/www/html/extensions/Tabs
+
+# RUN git clone --depth 1 --single-branch \
+# 	https://github.com/sigbertklinke/Iframe \
+# 	/var/www/html/extensions/Iframe
+
+# RUN git clone --depth 1 --single-branch -b $MEDIAWIKI_BRANCH \
+# 	https://gerrit.wikimedia.org/r/p/mediawiki/extensions/RSS \
+# 	/var/www/html/extensions/RSS
+
+# RUN git clone --depth 1 --single-branch -b v2.6.1 \
+# 	https://gerrit.wikimedia.org/r/p/mediawiki/extensions/WikiSEO \
+# 	/var/www/html/extensions/WikiSEO
+
+RUN COMPOSER=composer.local.json composer require --no-update mediawiki/semantic-media-wiki:~3.2 && \
+	composer update mediawiki/semantic-media-wiki --no-dev -o
+
+RUN COMPOSER=composer.local.json composer require --no-update mediawiki/semantic-meta-tags:~3.0 && \
+	composer update mediawiki/semantic-meta-tags --no-dev -o

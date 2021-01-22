@@ -80,5 +80,5 @@ RUN git clone --depth 1 --single-branch -b $MEDIAWIKI_BRANCH \
 # 	https://gerrit.wikimedia.org/r/p/mediawiki/extensions/RSS \
 # 	/var/www/html/extensions/RSS
 
-# RUN COMPOSER=composer.local.json composer require --no-update mediawiki/semantic-meta-tags:~3.0 && \
-# 	composer update mediawiki/semantic-meta-tags --no-dev -o
+RUN COMPOSER=composer.local.json composer require --no-update mediawiki/semantic-media-wiki:~3.2 && \
+	composer update mediawiki/semantic-media-wiki --no-dev -o

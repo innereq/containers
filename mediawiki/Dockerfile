@@ -76,6 +76,10 @@ RUN rm -rf /var/www/html/skins/Vector && \
 	https://gerrit.wikimedia.org/r/mediawiki/skins/Vector \
 	/var/www/html/skins/Vector
 
+RUN git clone --depth 1 --single-branch \
+	https://gerrit.wikimedia.org/r/p/mediawiki/extensions/PageForms \
+	/var/www/html/extensions/PageForms
+
 # Deprecated
 # RUN git clone --depth 1 --single-branch -b $MEDIAWIKI_BRANCH \
 # 	https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Tabs \
@@ -91,3 +95,6 @@ RUN rm -rf /var/www/html/skins/Vector && \
 
 RUN COMPOSER=composer.local.json composer require --no-update mediawiki/semantic-media-wiki:~3.2 && \
 	composer update mediawiki/semantic-media-wiki --no-dev -o
+
+RUN COMPOSER=composer.local.json composer require --no-update mediawiki/semantic-meta-tags:~3.0 && \
+	composer update mediawiki/semantic-meta-tags --no-dev -o

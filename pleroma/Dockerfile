@@ -13,7 +13,7 @@ RUN apk add git gcc g++ musl-dev make cmake file-dev \
 	&& mkdir release \
 	&& mix release --path release
 
-FROM alpine:3.13
+FROM alpine
 
 LABEL maintainer="ops@pleroma.social" \
     org.opencontainers.image.title="pleroma" \

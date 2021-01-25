@@ -1,6 +1,6 @@
 FROM elixir:1.9-alpine as build
 
-ARG PLEROMA_BRANCH=release/2.2.1
+ARG PLEROMA_BRANCH=release/2.2.2
 ENV MIX_ENV=prod
 
 RUN apk add git gcc g++ musl-dev make cmake file-dev \
@@ -13,7 +13,7 @@ RUN apk add git gcc g++ musl-dev make cmake file-dev \
 	&& mkdir release \
 	&& mix release --path release
 
-FROM alpine:3.11
+FROM alpine:3.13
 
 LABEL maintainer="ops@pleroma.social" \
     org.opencontainers.image.title="pleroma" \

@@ -60,10 +60,6 @@ RUN git clone --depth 1 --single-branch \
 	/var/www/html/extensions/RelatedArticles
 
 RUN git clone --depth 1 --single-branch -b $MEDIAWIKI_BRANCH \
-	https://gerrit.wikimedia.org/r/p/mediawiki/extensions/WikiSEO \
-	/var/www/html/extensions/WikiSEO
-
-RUN git clone --depth 1 --single-branch -b $MEDIAWIKI_BRANCH \
 	https://gerrit.wikimedia.org/r/p/mediawiki/extensions/CommentStreams \
 	/var/www/html/extensions/CommentStreams
 
@@ -92,6 +88,10 @@ RUN git clone --depth 1 --single-branch \
 # RUN git clone --depth 1 --single-branch -b $MEDIAWIKI_BRANCH \
 # 	https://gerrit.wikimedia.org/r/p/mediawiki/extensions/RSS \
 # 	/var/www/html/extensions/RSS
+
+# RUN git clone --depth 1 --single-branch -b $MEDIAWIKI_BRANCH \
+# 	https://gerrit.wikimedia.org/r/p/mediawiki/extensions/WikiSEO \
+# 	/var/www/html/extensions/WikiSEO
 
 RUN COMPOSER=composer.local.json composer require --no-update mediawiki/semantic-media-wiki:~3.2 && \
 	composer update mediawiki/semantic-media-wiki --no-dev -o

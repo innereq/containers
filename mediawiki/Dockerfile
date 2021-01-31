@@ -93,8 +93,13 @@ RUN git clone --depth 1 --single-branch \
 # 	https://gerrit.wikimedia.org/r/p/mediawiki/extensions/WikiSEO \
 # 	/var/www/html/extensions/WikiSEO
 
-RUN COMPOSER=composer.local.json composer require --no-update mediawiki/semantic-media-wiki:~3.2 && \
-	composer update mediawiki/semantic-media-wiki --no-dev -o
+RUN COMPOSER=composer.local.json composer require --no-update mediawiki/semantic-media-wiki:~3.2 \
+	&& composer update mediawiki/semantic-media-wiki --no-dev -o
 
-RUN COMPOSER=composer.local.json composer require --no-update mediawiki/semantic-meta-tags:~3.0 && \
-	composer update mediawiki/semantic-meta-tags --no-dev -o
+RUN COMPOSER=composer.local.json composer require --no-update mediawiki/semantic-meta-tags:~3.0 \
+	&& composer update mediawiki/semantic-meta-tags --no-dev -o
+
+# Strange bug: https://www.mediawiki.org/wiki/Topic:Vhevkhbn0f56oo3r
+RUN cd /var/www/html/extensions/OATHAuth \
+	&& composer install --no-dev \
+	&& cd /var/www/html

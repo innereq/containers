@@ -4,6 +4,7 @@ ENV MEDIAWIKI_BRANCH REL1_35
 
 RUN apt-get update && apt-get upgrade -y && apt-get install -y unzip
 
+# https://www.mediawiki.org/wiki/Composer
 RUN cd /tmp && curl -sS https://getcomposer.org/installer -o composer-setup.php \
 	&& php composer-setup.php --version="1.10.17" --install-dir=/usr/local/bin --filename=composer \
 	&& cd /var/www/html
@@ -85,6 +86,9 @@ RUN COMPOSER=composer.local.json composer require --no-update mediawiki/semantic
 
 RUN COMPOSER=composer.local.json composer require --no-update mediawiki/semantic-meta-tags:~3.0 \
 	&& composer update mediawiki/semantic-meta-tags --no-dev -o
+
+RUN COMPOSER=composer.local.json composer require --no-update mediawiki/semantic-result-formats:~3.1 \
+	&& composer update mediawiki/semantic-result-formats --no-dev -o
 
 # Strange bug: https://www.mediawiki.org/wiki/Topic:Vhevkhbn0f56oo3r
 RUN cd /var/www/html/extensions/OATHAuth \

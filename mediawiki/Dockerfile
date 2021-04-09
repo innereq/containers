@@ -90,6 +90,9 @@ RUN COMPOSER=composer.local.json composer require --no-update mediawiki/semantic
 RUN COMPOSER=composer.local.json composer require --no-update mediawiki/semantic-result-formats:~3.1 \
 	&& composer update mediawiki/semantic-result-formats --no-dev -o
 
+RUN COMPOSER=composer.local.json composer require --no-update mediawiki/semantic-extra-special-properties:~2.1 \
+	&& composer update mediawiki/semantic-extra-special-properties --no-dev -o
+
 # Strange bug: https://www.mediawiki.org/wiki/Topic:Vhevkhbn0f56oo3r
 RUN cd /var/www/html/extensions/OATHAuth \
 	&& composer install --no-dev \

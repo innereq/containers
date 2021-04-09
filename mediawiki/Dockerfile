@@ -97,3 +97,7 @@ RUN COMPOSER=composer.local.json composer require --no-update mediawiki/semantic
 RUN cd /var/www/html/extensions/OATHAuth \
 	&& composer install --no-dev \
 	&& cd /var/www/html
+
+RUN git clone --depth 1 --single-branch -b $MEDIAWIKI_BRANCH \
+        https://gerrit.wikimedia.org/r/p/mediawiki/extensions/CodeMirror \
+        /var/www/html/extensions/CodeMirror

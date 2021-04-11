@@ -1,4 +1,4 @@
-FROM mediawiki:1.35.1
+FROM mediawiki:1.35.2
 
 ENV MEDIAWIKI_BRANCH REL1_35
 

@@ -1,6 +1,6 @@
 FROM elixir:1.9-alpine as build
 
-ARG PLEROMA_BRANCH=develop
+ARG PLEROMA_BRANCH=v2.3.0
 ENV MIX_ENV=prod
 
 RUN apk add git gcc g++ musl-dev make cmake file-dev \

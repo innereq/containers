@@ -24,7 +24,7 @@ WORKDIR /var/www/html
 
 RUN rm -rf /tmp/*
 RUN ln -sf pmwiki.php index.php
-RUN umask 002 && mkdir /var/www/html/wiki.d /var/www/html/pub/htmlcache && chmod 777 /var/www/html/wiki.d /var/www/html/pub/htmlcache
+RUN umask 002 && mkdir /var/www/html/wiki.d /var/www/html/pub/htmlcache /var/www/html/uploads && chmod 777 /var/www/html/wiki.d /var/www/html/pub/htmlcache /var/www/html/uploads
 
 COPY 000-default.conf /etc/apache2/sites-available/
 RUN ln -sf /etc/apache2/mods-available/rewrite.load /etc/apache2/mods-enabled/
